@@ -26,7 +26,12 @@ app.post("/api/check-availability", async (req, res) => {
       },
     });
 
-    res.json(response.data);
+    const { available, count } = response.data;
+
+res.json({
+  available,
+  count
+});
   } catch (error) {
     console.error("API Error:", error.message);
 
